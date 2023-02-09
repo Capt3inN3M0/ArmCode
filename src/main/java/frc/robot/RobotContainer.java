@@ -58,22 +58,22 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
    new JoystickButton(m_joystick, 1)
-    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setExtendSetPoint(Constants.Arm.Extend.hybridSetpoint))); 
+    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setExtendSetPoint(Constants.Arm.Extend.HYBRID_SETPOINT))); 
 
    new JoystickButton(m_joystick, 2)
-    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setExtendSetPoint(Constants.Arm.Extend.midSetpoint)));
+    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setExtendSetPoint(Constants.Arm.Extend.MID_SETPOINT)));
 
    new JoystickButton(m_joystick, 3)
-    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setExtendSetPoint(Constants.Arm.Extend.highSetpoint)));
+    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setExtendSetPoint(Constants.Arm.Extend.HIGH_SETPOINT)));
 
    new JoystickButton(m_joystick, 4)
-    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setPivotSetPoint(Constants.Arm.Pivot.hybridSetpoint)));
+    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setPivotSetPoint(Constants.Arm.Pivot.HYBRID_SETPOINT)));
    
    new JoystickButton(m_joystick, 5)
-    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setPivotSetPoint(Constants.Arm.Pivot.midSetpoint)));
+    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setPivotSetPoint(Constants.Arm.Pivot.MID_SETPOINT)));
    
    new JoystickButton(m_joystick, 6)
-    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setPivotSetPoint(Constants.Arm.Pivot.highSetpoint)));
+    .whenPressed(new InstantCommand(() -> m_ArmSubsystem.setPivotSetPoint(Constants.Arm.Pivot.HIGH_SETPOINT)));
 
   
   }

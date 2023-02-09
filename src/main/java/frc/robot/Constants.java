@@ -18,79 +18,75 @@ public final class Constants {
 //drivetrain PID final variables 
         public static final class Drivetrain {
 
-            public static final double kP = 0;
-            public static final double kI = 0;
-            public static final double kD = 0;
-            public static final double kIz = 0;
-            public static final double zFF = 0;
+            public static final double P = 0;
+            public static final double I = 0;
+            public static final double D = 0;
+            
 
         }
     }
     public static final class Arm {
 
-            
-
         public static final class Pivot {
 
-            public static final double kP = 0;
-            public static final double kI = 0;
-            public static final double kD = 0;
-            public static final double kIz = 0;
-            public static final double zFF = 0;
+            public static final double P = 0;
+            public static final double I = 0;
+            public static final double D = 0;
 
-            public static final double hybridSetpoint = 0;
-            public static final double midSetpoint = 0;
-            public static final double highSetpoint = 0;
+            public static final double HYBRID_SETPOINT = 0;
+            public static final double MID_SETPOINT = 0;
+            public static final double HIGH_SETPOINT = 0;
 
-            public static final double pivotHybridRotations = 0;
-            public static final double pivotMidRotations = 0;
-            public static final double pivotHighRotations = 0;
+            public static final double PIVOT_HYBRID_ROTATIONS = 0;
+            public static final double PIVOT_MID_ROTATIONS = 0;
+            public static final double PIVOT_HIGH_ROTATIONS = 0;
             
-            public static final double yScale = 1; 
+            public static final double Y_SCALE = 1; 
 
             //in motor rotations
-            public static final float pivotReverseSoftLimit = 1;
-            public static final float pivotForwardSoftLimit = 1;
-            public static final double backHardLimit = 0;
-            public static final double frontHardLimit = 0;
+            public static final float PIVOT_REVERSE_SOFT_LIMIT = 1;
+            public static final float PIVOT_FORWARD_SOFT_LIMIT = 1;
+            public static final double BACK_HARD_LIMIT = 0;
+            public static final double FRONT_HARD_LIMIT = 0;
 
-            public static final int leftMotor = 0; 
-            public static final int rightMotor = 0;
+            public static final int LEFT_MOTOR = 0; 
+            public static final int RIGHT_MOTOR = 0;
             
-            public static final double gearRatio = 10.71;
-            public static final double maxVelocity = 0;
-            public static final double maxAcceleration = 0;
+            public static final double GEAR_RATIO = 10.71;
+            public static final double MAX_VELOCITY = 0;
+            public static final double MAX_ACCELERATION = 0;
 
-            public static final double minAngle = 0;
+            public static final double MIN_ANGLE = 0;
+            public static final int SWITCH_PORT = 1;
+        
         }
         public static final class Extend {
 
-            public static final double kP = 0;
-            public static final double kI = 0;
-            public static final double kD = 0;
-            public static final double kIz = 0;
-            public static final double zFF = 0;
+            public static final double P = 0;
+            public static final double I = 0;
+            public static final double D = 0;
+            
 
-            public static final double hybridSetpoint = 0;
-            public static final double midSetpoint = 0;
-            public static final double highSetpoint = 0;
+            public static final double HYBRID_SETPOINT = 0;
+            public static final double MID_SETPOINT = 0;
+            public static final double HIGH_SETPOINT = 0;
 
-            public static final double extendHybridRotations = 0;
-            public static final double extendMidRotations = 0;
-            public static final double extendHighRotations = 0;
+            public static final double EXTEND_HYBRID_ROTATIONS = 0;
+            public static final double EXTEND_MID_ROTATIONS = 0;
+            public static final double EXTEND_HIGH_ROTATIONS = 0;
 
-            public static final double yScale = 1;
+            public static final double Y_SCALE = 1;
 
-            public static final float extendReverseSoftLimit = 1;
-            public static final float extendForwardSoftLimit = 1;
-            public static final double backHardLimit = 0;
-            public static final double frontHardLimit = 0;
+            public static final float EXTEND_REVERSE_SOFT_LIMIT = 1;
+            public static final float EXTEND_FORWARD_SOFT_LIMIT = 1;
+            public static final double BACK_HARD_LIMIT = 0;
+            public static final double FRONT_HARD_LIMIT = 0;
 
-            public static final int extendMotor = 0; 
+            public static final int EXTEND_MOTOR = 0; 
 
-            public static final double gearRatio = 3;
-            public static final double maxVelocity = 0;
-            public static final double maxAcceleration = 0;
+            public static final double GEAR_RATIO = 3;
+            public static final double MAX_VELOCITY = 0;
+            public static final double MAX_ACCELERATION = 0;
 
             
 

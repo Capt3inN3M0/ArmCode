@@ -24,9 +24,9 @@ public class DriveSubsystem extends SubsystemBase {
 
   // PID stuff
   private PIDController m_pidController = new PIDController
-    (Drivetrain.kP,
-    Drivetrain.kI,
-    Drivetrain.kD);
+    (Drivetrain.P,
+    Drivetrain.I,
+    Drivetrain.D);
   private RelativeEncoder m_leftFrontEncoder;
   private RelativeEncoder m_rightFrontEncoder;
   private RelativeEncoder m_leftBackEncoder;

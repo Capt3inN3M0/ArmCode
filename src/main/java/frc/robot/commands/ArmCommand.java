@@ -32,15 +32,15 @@ public class ArmCommand extends CommandBase {
   @Override
   public void execute() {
 
-    double extend = aSubsystem.getExtendSetPoint() + Extend.yScale * value.getAsDouble();
-    double pivot = aSubsystem.getPivotSetPoint() + Pivot.yScale * value.getAsDouble();
+    double extend = aSubsystem.getExtendSetPoint() + Extend.Y_SCALE * value.getAsDouble();
+    double pivot = aSubsystem.getPivotSetPoint() + Pivot.Y_SCALE * value.getAsDouble();
 
-    if (extensionMode.getAsBoolean() && extend > Extend.backHardLimit && extend < Extend.frontHardLimit){
+    if (extensionMode.getAsBoolean() && extend > Extend.BACK_HARD_LIMIT && extend < Extend.FRONT_HARD_LIMIT){
       aSubsystem.setExtendSetPoint(
-      aSubsystem.getExtendSetPoint() + Extend.yScale * value.getAsDouble());
-    } else if (pivot > Pivot.backHardLimit && pivot < Pivot.frontHardLimit) { 
+      aSubsystem.getExtendSetPoint() + Extend.Y_SCALE * value.getAsDouble());
+    } else if (pivot > Pivot.BACK_HARD_LIMIT && pivot < Pivot.FRONT_HARD_LIMIT) { 
       aSubsystem.setPivotSetPoint(
-        aSubsystem.getPivotSetPoint() + Pivot.yScale * value.getAsDouble());
+        aSubsystem.getPivotSetPoint() + Pivot.Y_SCALE * value.getAsDouble());
     }
   }
 
