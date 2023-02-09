@@ -18,23 +18,22 @@ import static frc.robot.Constants.Arm.*;
 public class ArmSubsystem extends SubsystemBase {
   //arm motors
 
-    private CANSparkMax m_extendMotor = new CANSparkMax(Extend.extendMotor, MotorType.kBrushless);
-    private CANSparkMax m_firstLiftMotor = new CANSparkMax(Pivot.leftMotor, MotorType.kBrushless);
-    private CANSparkMax m_secondLiftMotor = new CANSparkMax(Pivot.rightMotor, MotorType.kBrushless);
+    private CANSparkMax m_extendMotor = new CANSparkMax(Extend.EXTEND_MOTOR, MotorType.kBrushless);
+    private CANSparkMax m_firstLiftMotor = new CANSparkMax(Pivot.LEFT_MOTOR, MotorType.kBrushless);
+    private CANSparkMax m_secondLiftMotor = new CANSparkMax(Pivot.RIGHT_MOTOR, MotorType.kBrushless);
 
-  //pid stuff
-// max velocity, gear ratio // max acceler, gear ratio
+// Profiled PID for the Extend and Pivoting Motors
     private ProfiledPIDController m_pivotPIDController = new ProfiledPIDController(
-      Pivot.kP, Pivot.kI, Pivot.kD,
-      new TrapezoidProfile.Constraints(Pivot.gearRatio * Pivot.maxVelocity, Pivot.gearRatio * Pivot.maxAcceleration));
+      Pivot.P, Pivot.I, Pivot.D,
+      new TrapezoidProfile.Constraints(Pivot.GEAR_RATIO * Pivot.MAX_VELOCITY, Pivot.GEAR_RATIO * Pivot.MAX_ACCELERATION));
     private ProfiledPIDController m_extendPIDController = new ProfiledPIDController(
-      Extend.kP, Extend.kI, Extend.kD,
-      new TrapezoidProfile.Constraints(Extend.gearRatio * Extend.maxVelocity, Extend.gearRatio * Extend.maxAcceleration));
+      Extend.P, Extend.I, Extend.D,
+      new TrapezoidProfile.Constraints(Extend.GEAR_RATIO * Extend.MAX_VELOCITY, Extend.GEAR_RATIO * Extend.MAX_ACCELERATION));
 
     private RelativeEncoder m_extendMotorEncoder;
     private RelativeEncoder m_firstLiftMotorEncoder;
 
-    DigitalInput m_limitSwitch = new DigitalInput(1);
+    DigitalInput m_limitSwitch = new DigitalInput(Pivot.SWITCH_PORT);
 
   //set extentions
 
@@ -52,22 +51,22 @@ public class ArmSubsystem extends SubsystemBase {
     //encoders
     m_extendMotorEncoder = m_extendMotor.getEncoder();
     m_firstLiftMotorEncoder = m_firstLiftMotor.getEncoder();
-
+ 
     //soft limits on motors
-    m_firstLiftMotor.setSoftLimit(SoftLimitDirection.kReverse, Pivot.pivotReverseSoftLimit);
-    m_secondLiftMotor.setSoftLimit(SoftLimitDirection.kReverse, Pivot.pivotReverseSoftLimit);
-    m_extendMotor.setSoftLimit(SoftLimitDirection.kReverse, Extend.extendReverseSoftLimit);
+    m_firstLiftMotor.setSoftLimit(SoftLimitDirection.kReverse, Pivot.PIVOT_REVERSE_SOFT_LIMIT);
+    m_secondLiftMotor.setSoftLimit(SoftLimitDirection.kReverse, Pivot.PIVOT_REVERSE_SOFT_LIMIT);
+    m_extendMotor.setSoftLimit(SoftLimitDirection.kReverse, Extend.EXTEND_REVERSE_SOFT_LIMIT);
 
-    m_firstLiftMotor.setSoftLimit(SoftLimitDirection.kForward, Pivot.pivotForwardSoftLimit);
-    m_secondLiftMotor.setSoftLimit(SoftLimitDirection.kForward, Pivot.pivotForwardSoftLimit);
-    m_extendMotor.setSoftLimit(SoftLimitDirection.kForward, Extend.extendForwardSoftLimit);
+    m_firstLiftMotor.setSoftLimit(SoftLimitDirection.kForward, Pivot.PIVOT_FORWARD_SOFT_LIMIT);
+    m_secondLiftMotor.setSoftLimit(SoftLimitDirection.kForward, Pivot.PIVOT_FORWARD_SOFT_LIMIT);
+    m_extendMotor.setSoftLimit(SoftLimitDirection.kForward, Extend.EXTEND_FORWARD_SOFT_LIMIT);
   }
 
   @Override
   public void periodic() {
 
     if (m_limitSwitch.get()) {
-      m_firstLiftMotorEncoder.setPosition(Pivot.minAngle);
+      m_firstLiftMotorEncoder.setPosition(Pivot.MIN_ANGLE);
     }
       
     m_extendPIDController.setGoal(extendSetPoint + extendCorrect(pivotSetPoint));
